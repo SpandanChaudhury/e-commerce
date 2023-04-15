@@ -9,6 +9,7 @@
 </div> -->
     <div class="card" style="width: 18rem;">
         <img :src = "getImage(product.image_path)" class="card-img-top" alt="">
+        <hr>
         <p :click = 'setValue(product)'></p>
       <!-- <p> {{ product.image_loc }}</p> -->
       <!-- {{ current = product }} -->
@@ -18,11 +19,14 @@
         name: 'productdetails',
         params: {id: product.product_id}
       }">
+       <h3>
+        
         {{ product.product_name}}
+        </h3>
       </router-link>
-      <p class = 'card-text' style = 'color: red'> Rs.{{ product.price }} </p>
+      <p class = 'card-text' style = 'color: red;'> Rs.{{ product.price }} </p>
       <!-- <button click = "showDetails(product)"> {{ product.product_name }} </button> -->
-      
+      <br>
       <button class = 'btn btn-primary' v-if = 'present == 0' @click = 'addToCart(product)'>Add to Cart</button>
       <!-- <button v-if = 'present > 0' @click = 'removeFromCart(product)'>Remove From Cart</button> -->
       <div v-if = 'present > 0' class= 'btn-group'>
@@ -157,8 +161,16 @@
 </script>
 
 <style scoped>
+    .card{
+        height: 600px;
+        /* max-height: 700px;
+        min-height: 600px; */
+    }
     img{
-        height: 300px;
-        width: 300px;
+       /* max-height: 400px;
+       max-width: 300px; */
+       height: 300px;
+       width: 300px;
+       padding: 20px;
     }
 </style>

@@ -1,46 +1,52 @@
 <template>
     <div>
-        <h2>Welcome new user</h2>
         <form @submit.prevent>
 
-            <div class="form-group">
-
-                <label for="firstname">First Name</label>
-                <input type="text" placeholder = 'First Name'  class = 'form-control' v-model = 'fname'>
+            <h2 style = 'text-align: center'>Register</h2>
+            <div class="mb-3 row">
+                <label for="firstName" class="col-sm-4 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control-plaintext" id="fname" v-model = 'fname'>
+                </div>
             </div>
-            <div class="form-group">
-                <!-- <br><br> -->
-                <label for="lasttname">Last Name</label>
-                <input type="text" placeholder = 'Last Name' class = 'form-control'  v-model = 'lname'>
-
+            <div class="mb-3 row">
+                <label for="firstName" class="col-sm-4 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control-plaintext" id="lname" v-model = 'lname'>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="Gender">Gender</label>
-                <br>
-                <input type="radio" value = 'Female'  class = 'form-control' v-model = 'gender'>Female
-                <input type="radio" value = 'Male'  class = 'form-control' v-model = 'gender'>Male
-
+            <!-- <div class="form-group"> -->
+                <label for="Gender" class="col-sm-2 col-form-label">Gender</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                </div>
+            <!-- </div> -->
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model = 'address'></textarea>
             </div>
-            <div class="form-group">
-                <label for="address">Address</label><br>
-                <!-- <input type="text" placeholder = 'Address' v-model = 'address'> -->
-                <textarea name="address" placeholder="Address"  class = 'form-control' v-model = 'address' id="" cols="30" rows="10"></textarea>
-
+           <div class="mb-3 row">
+                <label for="firstName" class="col-sm-4 col-form-label">Phone Number</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control-plaintext" id="phone" v-model = 'phone'>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type='number' placeholder = 'Phone Number' class = 'form-control'  v-model = 'phone'>
-
+            <div class="mb-3 row">
+                <label for="firstName" class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email"  class="form-control-plaintext" id="email" v-model = 'email'>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" placeholder = 'Email' class = 'form-control'  v-model = 'email'>
-
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="text" placeholder = 'Password' class = 'form-control'  v-model = 'password'>
-
+            <div class="mb-3 row">
+                <label for="firstName" class="col-sm-4 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password"  class="form-control-plaintext" id="password" v-model = 'password'>
+                </div>
             </div>
             <!-- <br><br>
             <br><br>
@@ -50,9 +56,9 @@
             <br><br> -->
 
 
-            <button @click = 'submit'>Sign Up</button>
+            <button class = 'btn' @click = 'submit' style="float:right;">Sign Up</button>
+            <router-link to = '/login'>Already registered? Login</router-link>
         </form>
-        <router-link to = '/login'>Already registered? Login</router-link>
     </div>
 </template>
 
@@ -115,9 +121,9 @@
 
 <style scoped>
     form {
-  min-width:300px;
-  max-width:400px;
-  padding:20px;
+  min-width:600px;
+  max-width:500px;
+  padding:20px 20px 90px 20px;
   margin:0 auto;
   background:#ffffff59; 
   -webkit-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
@@ -125,8 +131,8 @@
   box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
 }
 
-form input {
-  border:1px solid #eee;
+form input, textarea {
+  border:1px solid black;
   border-radius:0 !important;
   padding:5px 8px;
   color:#444;
@@ -141,7 +147,7 @@ form button {
 }
 
 form button:hover {
-  background:#fff !important;
+  background: lightblue !important;
 }
 
 .pull-right {

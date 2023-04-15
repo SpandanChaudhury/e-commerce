@@ -13,13 +13,18 @@
                     <td>Cost Per Unit </td>
                     <td>Details</td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr v-for = 'product in products' :key='product.product_id'>
-                    <ProductAdmin :product = product />
-                </tr>
-            </tbody>
-        </table>
+            </thead> 
+             <tbody>
+                <!-- <div class="text-center">
+                    <div class="row"> -->
+                        <tr  v-for = 'product in products' :key='product.product_id'>
+                            <ProductAdmin :product = product />
+                        </tr>
+
+                    <!-- </div>
+                </div> -->
+            </tbody> 
+         </table>
         
     </div>
 </template>

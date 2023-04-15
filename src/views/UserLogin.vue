@@ -108,7 +108,7 @@
     }
 
     form input {
-    border:1px solid #eee;
+    border:1px solid black;
     border-radius:0 !important;
     padding:5px 8px;
     color:#444;
@@ -123,7 +123,7 @@
     }
 
     form button:hover {
-    background:#fff !important;
+    background: lightblue !important;
     }
 
     .pull-right {

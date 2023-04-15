@@ -1,18 +1,23 @@
 <template>
   <div>
-    <h2>Admin login.</h2>
     <form @submit.prevent>
-      <label for="email">Email</label>
-      <input type="email" placeholder = 'Email' v-model = 'email'>
-      <br><br>
-      <label for="password">Password</label>
-      <input type="text" placeholder = 'Password' v-model = 'password'>
-      <br><br>
-      <button @click = 'submit'>Login</button>
-      <h2 style = 'color: red' v-if = 'error == 1'> {{ message }} </h2>
+      <h2 style = 'text-align: center;'>Admin login.</h2>
+      <div class="form-group">
+          <label for="email">Email ID</label>
+          <input type="email" placeholder = 'Email Address' class = 'form-control' v-model = 'email'>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" placeholder = 'password' class = 'form-control' v-model = 'password'>
+      </div>
+      <button type="reset" class="btn">Reset</button>
+      <button type="button"  @click = 'submit' class="btn" style="float:right">Login</button>
+      <h4 style = 'color: red' v-if = 'error == 1'> {{ message }} </h4>
+      <br>
+      <router-link style = 'text-align: center' to = '/login'>Not Admin? Login as User</router-link>
 
     </form>
-    <router-link to = '/login'>Not Admin? Login as User</router-link>
   </div>
 </template>
 
@@ -76,5 +81,44 @@
 </script>
 
 <style scoped>
+     form {
+    min-width:400px;
+    max-width:400px;
+    margin-top: 20px;
+    padding:20px;
+    margin:0 auto;
+    background:#ffffff59; 
+    -webkit-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    -moz-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    }
+
+    form input {
+    border:1px solid black;
+    border-radius:0 !important;
+    padding:5px 8px;
+    color:#444;
+    }
+
+    form button {
+    color:#555;
+    background:#ffffffad;
+    border:1px solid #fff !important;
+    margin-top:20px;
+    border-radius:0px Important;
+    }
+
+    form button:hover {
+    background: lightblue !important;
+    }
+
+    .pull-right {
+    float:right;
+    }
+    body {
+    background: #70e1f5;
+    background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  
+    background: linear-gradient(to right, #ffd194, #70e1f5);
+    }
 
 </style>
