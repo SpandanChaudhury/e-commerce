@@ -1,31 +1,40 @@
 <template>
-    <div>
-        <!-- <h2>this is the add product page for admin .</h2> -->
-        <router-link to = '/product-list'>Product List</router-link>
-        <form action=""  enctype = 'multipart/form-data' @submit.prevent>
-            <label for="">Product Name</label>
-            <input type="text" placeholder = 'product name' class="text" v-model = 'pname'>
-            <br><label for="">Product Description</label>
-            <br>
-            <!-- <input type="text" placeholder = 'product description' class="text" v-model = 'pdesc'> -->
-            <textarea name="" id="" cols="30" rows="10" v-model = 'pdesc'></textarea>
-            <br><label for="">Product Price</label>
-            <input type="text" placeholder = 'product price' class="text" v-model = 'price'>
-            <select v-model = 'vendor'>
-                <option value="">Select vendor</option>
-                <option v-for = 'vendor in vendors' :key = 'vendor.vendor_id' :value="vendor.vendor_id">
-                    {{ vendor.vendor_id }}. {{ vendor.vendor_name }}
-                </option>
-            </select>
-            <!-- <input type="number" placeholder = 'vendor id' v-model = 'vendor'> -->
-            <br>
-            <label for="">Product Image</label>
-            <input type="file" ref = 'fileInput'  class="text" multiple>
-            <br><button @click = 'submit'> Add product </button>
-
-            <!-- <img src="..//assets//images//1680842381703-phone.jpg" alt=""> -->
+    <div class="container" style = 'padding: 20px;'>
+        <form enctype = 'multipart/form-data' @submit.prevent>
+            <h2 class = 'd-flex justify-content-center'>ADD PRODUCT</h2>
+            <div class="form-group">
+                <label for="name">Product Name :</label>
+                <input type="text" class="form-control" name="name" v-model = 'pname'>
+            </div>
+            <div class="form-group">
+                <label for="pdesc">Product Description:</label>
+                <textarea class = 'form-control' name="pdesc" id="" cols="30" rows="10" v-model = 'pdesc'></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Product Price</label>
+                <input type="text" class="form-control" name="price" v-model = 'price'>
+            </div>
+            <div class="form-group">
+                <label for="vendor">Vendor: </label>
+                    <select name = 'vendor' v-model = 'vendor' class = 'form-control'>
+                            <option value="" selected>Select vendor</option>
+                            <option v-for = 'vendor in vendors' :key = 'vendor.vendor_id' :value="vendor.vendor_id">
+                                {{ vendor.vendor_id }}. {{ vendor.vendor_name }}
+                            </option>
+                    </select> 
+            </div>   
+            <div class="form-group">
+                <label for="">Product Image</label>
+                <input type="file" ref = 'fileInput'  class="text form-control" multiple>
+            </div>
+            <button type="reset" class="btn">Reset</button>
+            <button type="button" @click = 'submit' class="btn" style="float:right">Submit</button>
+            <div class="form-group">
+                <router-link class = 'd-flex justify-content-center' to = '/product-list'>Back</router-link>
+            </div>
         </form>
     </div>
+
 </template>
 
 <script>
@@ -114,5 +123,42 @@
 </script>
 
 <style scoped>
+form {
+  min-width:400px;
+  max-width:500px;
+  padding:20px;
+  margin:0 auto;
+  background:#ffffff59; 
+  -webkit-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+  -moz-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+  box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+}
 
+form input {
+  border:1px solid black;
+    border-radius:0 !important;
+    padding:5px 8px;
+    color:#444;
+}
+
+form button {
+  color:#555;
+  background:#ffffffad;
+  border:1px solid #fff !important;
+  margin-top:20px;
+  border-radius:0px Important;
+}
+
+form button:hover {
+  background:#70e1f5 !important;
+}
+
+.pull-right {
+  float:right;
+}
+body {
+  background: #70e1f5;
+  background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  
+  background: linear-gradient(to right, #ffd194, #70e1f5);
+}
 </style>

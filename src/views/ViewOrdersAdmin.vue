@@ -1,31 +1,21 @@
 <template>
     <div>
-        <h3>Total Orders</h3>
+        <!-- <h3>Total Orders</h3> -->
         <router-link to = '/users'>Back</router-link>
-        <div v-if = 'present == 0'>
+        <div style = 'text-align: center;' v-if = 'present == 0'>
             <h2>No Orders Yet</h2>
         </div>
         <div v-if = 'present == 1'>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Bill ID</th>
-                        <th>Bill Amount</th>
-                        <th>Bill Date</th>
-                        <!-- <th>Details</th> -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for = 'bill in bills' :key='bill.bill_id'>
-                        <td> {{ bill.bill_id }} </td>
-                        <td> {{ bill.bill_amount }} </td>
-                        <td> {{ bill.bill_date.substr(0, 8) + (parseInt(bill.bill_date.substr(8, 11)) + 1)  }} </td>
-                        <!-- <td>
-                            <router-link :to = "{name: 'order-details', params: {id: bill.bill_id }}">Check Details </router-link>
-                        </td> -->
-                    </tr>
-                </tbody>
-            </table>
+            <div class="card" style = 'margin-bottom: 30px;' v-for = 'bill in bills' :key='bill.bill_id'>
+                <div class="card-header text-bg-info p-3">
+                    Bill ID - {{ bill.bill_id}}
+                </div>
+                <div class="card-body p-3 mb-2 bg-info-subtle text-emphasis-info" >
+                    <h5 class="card-title">Bill Amount - RS. {{ bill.bill_amount }}</h5>
+                    <p class="card-text">Order Date - {{ bill.bill_date.substr(0, 8) + (parseInt(bill.bill_date.substr(8, 11)) + 1)  }} </p>
+                    <router-link class = 'btn btn-primary' style = 'float: right;' :to = "{name: 'order-details', params: {id: bill.bill_id }}">Check Details </router-link>
+                </div>
+            </div>
         </div>
 
         

@@ -56,7 +56,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-4 p-4 proceed form">
+                    <div class="col-12 col-sm-4 p-4 proceed form" v-if = 'isEmpty == 1'>
                         <div class="row m-0">
                             <div class="col-sm-8 p-0">
                                 <h6>Subtotal</h6>
@@ -83,6 +83,11 @@
                             </div>
                         </div>
                         <router-link to = '/checkOut'><button id="btn-checkout" class="shopnow"><span>Checkout</span></button></router-link>
+                    </div>
+                    <div v-if = 'isEmpty == 0'>
+                      <h2>
+                        Your Cart is currently empty, add items to view.
+                      </h2>
                     </div>
                 </div>
             </div>

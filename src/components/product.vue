@@ -1,45 +1,28 @@
 <template>
-<!-- <div >
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> -->
     <div class="card" style="width: 18rem;">
         <img :src = "getImage(product.image_path)" class="card-img-top" alt="">
         <hr>
         <p :click = 'setValue(product)'></p>
-      <!-- <p> {{ product.image_loc }}</p> -->
-      <!-- {{ current = product }} -->
-    <!--   <p> {{ product.product_name }}</p> -->
-    <div class = 'card-body'>
-      <router-link class = 'card-title' :to = "{
-        name: 'productdetails',
-        params: {id: product.product_id}
-      }">
-       <h3>
-        
-        {{ product.product_name}}
-        </h3>
-      </router-link>
-      <p class = 'card-text' style = 'color: red;'> Rs.{{ product.price }} </p>
-      <!-- <button click = "showDetails(product)"> {{ product.product_name }} </button> -->
-      <br>
-      <button class = 'btn btn-primary' v-if = 'present == 0' @click = 'addToCart(product)'>Add to Cart</button>
-      <!-- <button v-if = 'present > 0' @click = 'removeFromCart(product)'>Remove From Cart</button> -->
-      <div v-if = 'present > 0' class= 'btn-group'>
-        <button class = 'btn btn-primary' @click = 'addToCart(product)'>  +  </button><br>
-        <h4 style = 'padding: 10px;'>  {{ present }}   </h4><br>
-        <button class = 'btn btn-primary' @click = 'removeFromCart(product)'>  -  </button>
 
-      </div>
+        <div class = 'card-body'>
+            <router-link class = 'card-title' :to = "{
+                                                    name: 'productdetails',
+                                                    params: {id: product.product_id}
+                                                }">
+            <h3>{{ product.product_name}}</h3>
+            </router-link>
+            <p class = 'card-text' style = 'color: red;'> Rs.{{ product.price }} </p>
+            <br>
+            <button class = 'btn btn-primary' v-if = 'present == 0' @click = 'addToCart(product)'>Add to Cart</button>
+            <div v-if = 'present > 0' class= 'btn-group'>
+                <button class = 'btn btn-primary' @click = 'addToCart(product)'>  +  </button><br>
+                <h4 style = 'padding: 10px;'>  {{ present }}   </h4><br>
+                <button class = 'btn btn-primary' @click = 'removeFromCart(product)'>  -  </button>
 
-
-    </div>
-      <br>
-      <br>
+            </div>
+        </div>
+        <br>
+        <br>
     </div>
 </template>
 
@@ -157,6 +140,7 @@
                 
             }
         },
+        
     }
 </script>
 

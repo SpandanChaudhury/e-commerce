@@ -7,7 +7,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item" v-if = 'logged != 1'>
           <a class="nav-link active" aria-current="page" href="/viewcart">View Cart</a>
         </li>
         <li class="nav-item" v-if = 'logged == 10'>
@@ -19,6 +19,19 @@
         <li class="nav-item" v-if = 'logged == 2'>
           <a class="nav-link" href="/orders" >View Orders</a>
         </li>
+
+        <li class="nav-item" v-if = 'logged == 1'>
+          <a class="nav-link" href="/addProduct" >Add Product</a>
+        </li>
+        <li class="nav-item" v-if = 'logged == 1'>
+          <a class="nav-link" href="/users" >Users</a>
+        </li>
+        <li class="nav-item" v-if = 'logged == 1'>
+          <a class="nav-link" href="/vendors" >Vendors</a>
+        </li>
+        <li class="nav-item" v-if = 'logged == 1'>
+          <a class="nav-link" href="" @click = 'logout_admin' >LogOut</a>
+        </li>
       </ul>
        <div class="d-flex" v-if = 'logged == 2'>
         <h5>Welcome {{ user.first_name }} {{ user.last_name }} </h5>
@@ -29,6 +42,7 @@
 </template>
 
 <script>
+    import { useRouter } from 'vue-router';
     export default {
         name: 'NavbarComponent',
         data: () => {
@@ -38,7 +52,17 @@
                 user: {}
             }
         },
+        setup(){
+          const router = useRouter();
+          function redirect()
+          {
+            router.push('/admin-login');
+          }
+          return {
+            redirect
+          }
 
+        },
         methods: {
             logout()
             {
@@ -50,6 +74,12 @@
                 this.logged = 1;
                 location.reload();
             },
+            logout_admin()
+            {
+              localStorage.removeItem('products');
+              localStorage.removeItem('admin');
+              this.redirect();
+            }
         },
         created()
         {

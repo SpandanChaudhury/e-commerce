@@ -1,35 +1,31 @@
 <template>
     <div>   
         <!-- <h1>this is the specific vendor view </h1> -->
-        <router-link to = '/vendors'>Vendors List</router-link>
-        <div v-if = 'present == 1'>
+      <div class="text-center" style="padding: 30px;">
+        <router-link class = 'row' to = '/vendors'>Vendors List</router-link>
+        <div class = 'row' v-if = 'present == 1'>
             <h2>No products found </h2>
         </div>
-        <div v-if = 'present == 0'>
-            <table>
-                <thead>
-                    <th>Product ID</th>
-                    <th>Product Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                </thead>
-                <tbody>
-                    <tr v-for = 'product in products' :key='product.product_id'>
-                        <td> {{ product.product_id }} </td>
-                        <td> {{ product.product_name }} </td>
-                        <td> {{ product.description }} </td>
-                        <td> {{ product.price }} </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class = 'row' v-if = 'present == 0'>
+          <div class = 'col' v-for = 'product in products' :key='product.product_id'>
+            <!-- <h2>{{ product }} </h2> -->
+            <ProductView :product = "product"/>
+          </div>
+
         </div>
+
+      </div>
     </div>
 </template>
 
 <script>
     import axios from 'axios';
+    import ProductView from '../components/product.vue';
     export default {
         name: 'VendorView',
+        components: {
+            ProductView
+        },
         data: () => {
             return {
                 id: '',

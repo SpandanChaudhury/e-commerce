@@ -1,30 +1,21 @@
 <template>
     <div>
-        <button @click = 'logout'>Log Out</button>
+        <NavbarComponent/>
+        <!-- <button @click = 'logout'>Log Out</button>
         <router-link to = '/addProduct'> Add Product </router-link>
         <button @click = 'users'>USERS</button>
         <button @click = 'vendors'>Vendors</button>
-        <h2>Products' List </h2>
-        <table>
-            <thead>
-                <tr>
-                    <td>Product ID</td>
-                    <td> Product Name </td>
-                    <td>Cost Per Unit </td>
-                    <td>Details</td>
-                </tr>
-            </thead> 
-             <tbody>
-                <!-- <div class="text-center">
-                    <div class="row"> -->
-                        <tr  v-for = 'product in products' :key='product.product_id'>
+        <h2>Products' List </h2> -->
+     
+                <div class="text-center">
+                    <div class="row">
+                        <div class = 'col' v-for = 'product in products' :key='product.product_id'>
                             <ProductAdmin :product = product />
-                        </tr>
+                        </div>
 
-                    <!-- </div>
-                </div> -->
-            </tbody> 
-         </table>
+                    </div>
+                </div>
+         
         
     </div>
 </template>
@@ -32,6 +23,7 @@
 <script>
     import axios from 'axios';
     import ProductAdmin from '../components/product_admin.vue';
+    import NavbarComponent from '../components/navbarComponent.vue'
     import { useRouter } from 'vue-router';
     export default {
         name: 'ProductsList',
@@ -42,7 +34,8 @@
             }
         },
         components: {
-            ProductAdmin
+            ProductAdmin,
+            NavbarComponent
         },
         setup(){
             const router = useRouter();
